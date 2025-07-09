@@ -1,0 +1,24 @@
+# Ignore dataset folder
+dataset/
+
+# Ignore virtual environment or conda env
+intel-env-fresh/
+
+# Ignore patches folder
+patches/
+
+# Ignore test and train folders
+test/
+train/
+
+# Ignore zipped teacher model archive
+intel_teacher_model_fixed.zip.zip
+
+# Optional: Common unwanted files
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
+
+unet.py
