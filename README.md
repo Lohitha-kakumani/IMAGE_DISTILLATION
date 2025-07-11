@@ -15,18 +15,8 @@ We use the **DIV2K** dataset:
 📎 **Dataset Location:**  
 🔗 [posted in kraggle  – LR, HR] - https://www.kaggle.com/datasets/lohithakakumani/intel-dataset
 🔗 [posted in kraggle  – Teacher Outputs] - https://www.kaggle.com/datasets/lohithakakumani/teacher-output
-
+🔗 [Google Drive Link] - [https://www.kaggle.com/datasets/lohithakakumani/teacher-output](https://drive.google.com/drive/folders/1bVjz7PP-XG8DhVRy-eUZQe7eRYwOG01S?usp=sharing)
 ---
-
-## ⚙️ Environment Setup
-
-> Python ≥ 3.9, CUDA GPU recommended
-
-```bash
-conda create -n intel-env-fresh python=3.9
-conda activate intel-env-fresh
-pip install -r requirements.txt
-
 
 🧠 Teacher Model – RealESRGAN
 Used the pre-trained RealESRGAN_x4plus model for high-quality image enhancement
@@ -72,4 +62,13 @@ INTEL/
 ├── Intel_report.pdf           # 📄 Final project report (includes models, methodology, results)
 ├── INTEL_VIDEO_EXPLANATION.mp4 # 🎥 Screen-recorded explanation of the project
 
-# GOOGLEDRIVE LINK - 🔗 https://drive.google.com/drive/folders/1bVjz7PP-XG8DhVRy-eUZQe7eRYwOG01S?usp=sharing
+
+## ⚙️ Environment Setup
+
+> Python ≥ 3.9, CUDA GPU recommended
+
+```bash
+conda create -n intel-env-fresh python=3.9
+conda activate intel-env-fresh
+pip install -r requirements.txt
+
