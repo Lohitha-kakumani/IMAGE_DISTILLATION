@@ -107,3 +107,7 @@ conda create -n intel-env-fresh python=3.9
 conda activate intel-env-fresh
 pip install -r requirements.txt
 
+OUTPUTS
+<img width="1451" height="708" alt="image" src="https://github.com/user-attachments/assets/aae2faab-53a4-4b4d-b069-5f6f9b25f8a2" />
+<img width="1441" height="712" alt="image" src="https://github.com/user-attachments/assets/85656270-1a50-4b39-9da8-7b9a4230097e" />
+
