@@ -18,49 +18,84 @@ We use the **DIV2K** dataset:
 🔗 [Google Drive Link] - [https://www.kaggle.com/datasets/lohithakakumani/teacher-output](https://drive.google.com/drive/folders/1bVjz7PP-XG8DhVRy-eUZQe7eRYwOG01S?usp=sharing)
 ---
 
-🧠 Teacher Model – RealESRGAN
-Used the pre-trained RealESRGAN_x4plus model for high-quality image enhancement
-Ran over 3200 Low-Resolution (LR) image patches
-Generated sharp and detailed outputs that act as distillation targets for training the student model
-📎 Output Location
-📁 teacher_outputs/ – All outputs resized to 256x256 to match the input size for student training
+## 🧠 Teacher Model – RealESRGAN
+We use the pre-trained **RealESRGAN_x4plus** model to generate high-quality sharpened images.
+- ✅ Processes over **3200 Low-Resolution (LR)** image patches  
+- ✅ Outputs are sharp and detailed, serving as **distillation targets** for the student model
 
+### 📎 Output Location
+```
+📁 teacher_outputs/
+```
+> All outputs are resized to `256x256` to match the input size for student training.
 
-👶 Student Model – Lightweight UNet
-The student model is a compact UNet architecture trained using:
-✅ Pixel-wise L1 Loss (between prediction & HR ground truth)
-✅ Distillation Loss (between prediction & teacher output)
-📁 Model gets saved as:
-distilled_unet.pth
+---
 
-🧪 Testing the Student Model
-After training, the student model is evaluated on 400 unseen LR patches.
-Output images are saved to:
+## 👶 Student Model – Lightweight UNet
+
+The **Student Model** is a lightweight **UNet** trained to replicate the teacher’s behavior using two loss functions:
+
+- ✅ **Pixel-wise L1 Loss** (between student prediction and HR ground truth)  
+- ✅ **Distillation Loss** (between student prediction and teacher output)
+
+### 📦 Model Save Path
+```
+📁 distilled_unet.pth
+```
+
+---
+
+## 🧪 Testing the Student Model
+
+After training, the student model is tested on **400 unseen LR patches**.
+
+### 📎 Output Location
+```
 📁 patches/HR_Predicted/
+```
+---
 
-📈 SSIM Evaluation
-To evaluate performance, we compute SSIM (Structural Similarity Index) between predicted and ground truth HR images.
-✅ Average SSIM Score: 0.86 (on 100 test images)
+## 📈 SSIM Evaluation
 
-📁 Folder Structure
+To evaluate performance, we compute **SSIM** (Structural Similarity Index)  
+between the predicted and ground truth **high-resolution (HR)** images.
+
+- ✅ **Average SSIM Score**: `0.86` (evaluated on 100 test images)
+
+---
+
+## 📁 Folder Structure
+
+```
 INTEL/
-├── dataset/                     # Contains LR, HR images of DIV2K
-├── patches/                    # Stores cropped image patches (LR, HR, and predicted outputs of student model)
-├── train/                      # Folder contains cropped images of LR,HR, and also teacher_outputs
-├── distilled_unet.pth         # ✅ Trained student model (UNet) weights
-├── RealESRGAN_x4plus.pth      # 📥 Official RealESRGAN pretrained model file
-├── app.py                      # 📥 test script to run the teacher model
+├── dataset/                      # Contains LR, HR images of DIV2K
+├── patches/                      # Stores cropped image patches (LR, HR, and predicted outputs of student model)
+├── train/                        # Folder contains cropped images of LR, HR, and also teacher_outputs
+├── distilled_unet.pth           # ✅ Trained student model (UNet) weights
+├── RealESRGAN_x4plus.pth        # 📥 Official RealESRGAN pretrained model file
+├── app.py                        # 📥 Test script to run the teacher model
 ├── intel_teacher_model_fixed.pth # ✅ Pretrained RealESRGAN (teacher) model weights
-├── testscript.py              # 🧪 Script to test student model and save predictions
-├── ssim.py                    # 📏 Calculates SSIM between predictions and ground truth
-├── unet_model.py              # 🧠 Lightweight UNet student model architecture
-├── cropimage.py               # ✂️ Crops HR images into 256x256 patches
-├── lowscale.py                # 🔽 Generates LR images using bicubic downscaling
-├── requirements.txt           # 📚 Python dependencies for the project
-├── intel.ipynb                # 📓 Jupyter notebook for experimentation or demo
-├── INTEL_PRESENTATION.pptx    # 🖼️ Final project presentation file
-├── Intel_report.pdf           # 📄 Final project report (includes models, methodology, results)
-├── INTEL_VIDEO_EXPLANATION.mp4 # 🎥 Screen-recorded explanation of the project
+├── testscript.py                # 🧪 Script to test student model and save predictions
+├── ssim.py                      # 📏 Calculates SSIM between predictions and ground truth
+├── unet_model.py                # 🧠 Lightweight UNet student model architecture
+├── cropimage.py                 # ✂️ Crops HR images into 256x256 patches
+├── lowscale.py                  # 🔽 Generates LR images using bicubic downscaling
+├── requirements.txt             # 📚 Python dependencies for the project
+├── intel.ipynb                  # 📓 Jupyter notebook for experimentation or demo
+├── INTEL_PRESENTATION.pptx      # 🖼️ Final project presentation file
+├── Intel_report.pdf             # 📄 Final project report (includes models, methodology, results)
+├── INTEL_VIDEO_EXPLANATION.mp4  # 🎥 Screen-recorded explanation of the project
+```
+---
+
+## 🔗 Kaggle Notebook
+
+You can check out the full training process of the student model on **Kaggle** using the link below:
+
+👉 [Intel: Student Model Training Notebook (Kaggle)](https://www.kaggle.com/code/lohithakakumani/intel)
+
+> Trained the student UNet model using **3200 LR**, **HR**, and **Teacher Output** image patches.
+
 
 
 ## ⚙️ Environment Setup
